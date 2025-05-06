@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Merriweather&display=swap');
+
+  /* Background with subtle vintage floral pattern (created with CSS) */
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at center, #ffeae6 0%, #f7d5d0 60%, #c4a69f 100%);
+    font-family: 'Merriweather', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+  }
+
+  .container {
+    width: 340px;
+    max-width: 90vw;
+    user-select: none;
+    perspective: 1000px;
+  }
+
+  .envelope {
+    width: 100%;
+    height: 480px;
+    background: linear-gradient(135deg, #fff5f2 0%, #ead5d1 100%);
+    border: 3px solid #b1665f;
+    border-radius: 16px;
+    box-shadow:
+      inset 0 0 30px #f7c9c4,
+      0 10px 30px rgb(176 68 61 / 0.6);
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 1s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  /* The flap - simulating old folded paper flap */
+  .flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 140px;
+    background: linear-gradient(135deg, #b1665f 0%, #8a473f 100%);
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    box-shadow: inset 0 -20px 40px #692c2a;
+    transform-origin: top center;
+    transition: transform 1s cubic-bezier(0.4,0,0.2,1);
+    z-index: 5;
+  }
+
+  /* The letter inside */
+  .letter {
+    position: absolute;
+    top: 140px;
+    left: 10px;
+    right: 10px;
+    bottom: 15px;
+    background: #fff8f6;
+    border-radius: 12px;
+    padding: 30px 25px 40px 25px;
+    box-shadow:
+      0 6px 12px rgb(0 0 0 / 0.1),
+      inset 0 0 15px #f2cacc;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateZ(20px);
+    transition: opacity 1s ease 0.5s;
+    overflow-y: auto;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2rem;
+    color: #7b4c4c;
+    line-height: 1.7;
+  }
+
+  /* Scrollbar for letter (nice style for modern browsers) */
+  .letter::-webkit-scrollbar {
+    width: 7px;
+  }
+  .letter::-webkit-scrollbar-track {
+    background: #fbe9e9;
+    border-radius: 10px;
+  }
+  .letter::-webkit-scrollbar-thumb {
+    background: #b36b68;
+    border-radius: 10px;
+  }
+
+  /* Open state styles */
+  .envelope.open .flap {
+    transform: rotateX(-180deg);
+    box-shadow: none;
+  }
+
+  .envelope.open .letter {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Decorative corners for letter */
+  .letter:before, .letter:after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 40px;
+    border: 2px solid #c18886;
+    border-color: #c18886 transparent transparent #c18886;
+    border-radius: 0 0 0 20px;
+    pointer-events: none;
+  }
+  .letter:before {
+    top: 10px;
+    left: 10px;
+    transform: rotate(-45deg);
+  }
+  .letter:after {
+    bottom: 10px;
+    right: 10px;
+    border-color: transparent #c18886 #c18886 transparent;
+    border-radius: 20px 0 0 0;
+    transform: rotate(-45deg);
+  }
+
+  /* Title styling inside letter */
+  .letter h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.4rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #a64e4e;
+    text-align: center;
+    text-shadow: 0 1px 1px #fce2e2;
+  }
+
+  /* Responsive for mobile */
+  @media (max-width: 400px) {
+    .container {
+      width: 100vw;
+    }
+    .envelope {
+      height: 420px;
+    }
+    .letter {
+      font-size: 1rem;
+      padding: 20px 15px 30px 15px;
+    }
+    .letter h1 {
+      font-size: 1.8rem;
+    }
+  }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>:)</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<link rel="shortcut icon" href="img/love-letter.png" type="image/x-icon">
+</head>
+<body>
+  <div class="container" tabindex="0" aria-label="Abrir carta romântica" role="button" title="Clique para abrir a carta" onkeypress="if(event.key==='Enter') toggleLetter()" onclick="toggleLetter()">
+    <div class="envelope" id="envelope">
+      <div class="flap"></div>
+      <div class="letter" id="letter">
+        <h1>Minha Querida ❤</h1>
+        <p>
+            Eu não sei bem como começar, porque, às vezes, as palavras parecem pequenas demais para expressar o que sinto. Há algo em você que me faz sentir uma conexão tão profunda, como se a cada dia ao seu lado, eu descobrisse uma parte de mim que eu nem sabia que existia.
+        </p>
+        <p>
+            Tudo em você me encanta — o jeito de sorrir, o olhar que parece entender até os meus pensamentos mais secretos, a maneira como você ilumina qualquer ambiente. Não é exagero quando digo que, ao te ver, meu coração acelera, e minha cabeça fica cheia de coisas boas.
+        </p>
+
+        <p>
+            Eu não consigo mais ignorar o que sinto, e estou aqui, me entregando a esse sentimento, sem medo. Afinal, o que seria a vida sem a coragem de viver o que o coração nos pede? E é por isso que, de forma bem sincera, eu preciso te dizer…
+        </p>
+
+        <p>
+            Você, definitivamente, vai ser a pessoa que vai me ajudar a escolher meu pedido de pizza na sexta-feira! Eu já sei que vamos brigar sobre o sabor, mas... vamos fazer disso uma tradição, porque já estou ansioso para essas pequenas grandes disputas.
+        </p>
+        <p>
+            Com carinho e uma boa dose de humor,  
+          <br>José Lucas ო.
+        </p>
+      </div>
+    </div>
+  </div>
+
+<script>
+  function toggleLetter() {
+    const envelope = document.getElementById('envelope');
+    envelope.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
